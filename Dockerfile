@@ -25,4 +25,6 @@ FROM base
 ARG QMK_REPOSITORY=qmk/qmk_firmware
 ARG QMK_VERSION=master
 
-RUN qmk setup --yes --home "${QMK_HOME}" "${QMK_REPOSITORY}" --branch "${QMK_VERSION}"
+RUN \
+  qmk setup --yes --home "${QMK_HOME}" "${QMK_REPOSITORY}" --branch "${QMK_VERSION}" && \
+  rm -rf "${QMK_HOME}"/.git
