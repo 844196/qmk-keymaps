@@ -9,6 +9,9 @@ on:
         description: qmk/qmk_firmware version
         default: master
 
+permissions:
+  packages: write
+
 jobs:
   build:
     name: Build
