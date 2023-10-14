@@ -14,6 +14,7 @@ RUN \
 
 RUN install -o nonroot -g nonroot -d /code/
 
+ENV QMK_HOME=/home/nonroot/qmk_firmware
 USER nonroot
 WORKDIR /code
 
@@ -21,9 +22,7 @@ WORKDIR /code
 
 FROM base
 
-ENV QMK_HOME=/home/nonroot/qmk_firmware
-
 ARG QMK_REPOSITORY=qmk/qmk_firmware
 ARG QMK_VERSION=master
 
-RUN qmk setup --yes --home ${QMK_HOME} "${QMK_REPOSITORY}" --branch "${QMK_VERSION}"
+RUN qmk setup --yes --home "${QMK_HOME}" "${QMK_REPOSITORY}" --branch "${QMK_VERSION}"
