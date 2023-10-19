@@ -35,3 +35,10 @@ tasks:
         vars:
           KEYBOARD: crkbd/rev1
           KEYMAP: efumaxay
+
+  build:lulu:minecraft:
+    cmds:
+      - task: build
+        vars:
+          KEYBOARD: boardsource/lulu/rp2040
+          KEYMAP: minecraft
