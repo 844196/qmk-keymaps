@@ -38,6 +38,7 @@ jobs:
       - uses: docker/build-push-action@v5
         with:
           push: true
+          file: Dockerfile.workspace
           build-args: |
             QMK_VERSION=${{ inputs.qmk_version }}
           tags: ${{ steps.meta.outputs.tags }}
