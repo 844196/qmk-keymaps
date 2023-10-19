@@ -28,3 +28,10 @@ tasks:
     cmds:
       # .build 自体を消すとバインドマウントしているホスト側でファイルの変更が反映されない
       - find .build -mindepth 1 ! -name .gitignore -print0 | xargs --null rm -rf
+
+  build:crkbd:
+    cmds:
+      - task: build
+        vars:
+          KEYBOARD: crkbd/rev1
+          KEYMAP: efumaxay
