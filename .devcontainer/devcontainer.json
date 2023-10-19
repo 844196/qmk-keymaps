@@ -1,0 +1,24 @@
+{
+  "name": "${localWorkspaceFolderBasename}",
+  "dockerComposeFile": "../compose.yml",
+  "service": "workspace",
+  "remoteUser": "nonroot",
+  "updateRemoteUserUID": true,
+  "workspaceFolder": "/code",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:2": {
+      "username": "nonroot",
+      "installOhMyZsh": false
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "task.vscode-task"
+      ],
+      "settings": {
+        "cSpell.enabled": false
+      }
+    }
+  }
+}

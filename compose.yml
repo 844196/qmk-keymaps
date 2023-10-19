@@ -1,0 +1,6 @@
+services:
+  workspace:
+    image: ghcr.io/844196/qmk-keymaps-workspace:0.22.12
+    volumes:
+      - .:/code
+    tty: true
