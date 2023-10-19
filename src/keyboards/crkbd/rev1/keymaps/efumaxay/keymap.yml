@@ -1,0 +1,443 @@
+layout:
+  qmk_keyboard: corne_rotated
+  qmk_layout: LAYOUT_split_3x6_3
+layers:
+  Base:
+    -
+      - Tab
+      - Q
+      - tap: W
+        shifted: Del-word
+      - E
+      - R
+      - T
+    -
+      - Y
+      - U
+      - I
+      - O
+      - P
+      - '-'
+    -
+      - RCtrl
+      - A
+      - S
+      - D
+      - F
+      - G
+      - tap: H
+        shifted: BSPC
+      - J
+      - K
+      - L
+      - ;
+      - "'"
+    -
+      - Caps Word
+      - Z
+      - X
+      - C
+      - V
+      - B
+      - N
+      - M
+      - ','
+      - '.'
+      - '/'
+      - '='
+    -
+      - tap: Mouse
+        hold: Nav
+      - tap: One-Shot Sym
+        hold: Sym
+      - $$mdi:keyboard-space$$
+    -
+      - $$mdi:keyboard-return$$
+      - tap: Num Word
+        hold: Num
+      - tap: Mouse
+        hold: Nav
+  Num:
+    -
+      - Esc
+      - F1
+      - F2
+      - F3
+      - F4
+      - F5
+    -
+      - F6
+      - F7
+      - F8
+      - F9
+      - F10
+      - Delete
+    -
+      - hold: RCtrl
+        tap: "`"
+      - 1
+      - 2
+      - 3
+      - 4
+      - 5
+    -
+      - tap: 6
+        shifted: BSPC
+      - 7
+      - 8
+      - 9
+      - 0
+      - "-"
+    -
+      - Shift
+      - F11
+      - F12
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - tap: Cancel Num Word
+        type: held
+      - type: trans
+  Sym:
+    -
+      - Esc
+      - type: trans
+      - type: trans
+      - Ctrl C
+      - Ctrl V
+      - Enter
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+      - '['
+      - ']'
+      - '\'
+    -
+      - "~"
+      - "!"
+      - "@"
+      - "#"
+      - "$"
+      - "%"
+    -
+      - "^"
+      - "&"
+      - "*"
+      - '('
+      - ')'
+      - "_"
+    -
+      - Shift
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+      - '{'
+      - '}'
+      - '|'
+    -
+      - type: trans
+      - tap: Cancel One-Shot Sym
+        type: held
+      - type: trans
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+  Mouse:
+    -
+      - Esc
+      - type: trans
+      - Back
+      - M↑
+      - Forward
+      - Enter
+    -
+      - type: trans
+      - Back
+      - Forward
+      - type: trans
+      - type: trans
+      - Delete
+    -
+      - Ctrl
+      - Right Click
+      - M←
+      - M↓
+      - M→
+      - MW↑
+    -
+      - M←
+      - M↓
+      - M↑
+      - M→
+      - Right Click
+      - Enter
+    -
+      - Shift
+      - Snipe DPI
+      - type: trans
+      - Ctrl C
+      - Ctrl V
+      - MW↓
+    -
+      - MW←
+      - MW↓
+      - MW↑
+      - MW→
+      - type: trans
+      - Shift
+    -
+      - Nav
+      - Middle Click
+      - Left Click
+    -
+      - Left Click
+      - Middle Click
+      - Nav
+  Nav:
+    -
+      - Esc
+      - type: trans
+      - type: trans
+      - Ctrl C
+      - Ctrl V
+      - Enter
+    -
+      - type: trans
+      - Super Tab (Ctrl)
+      - Super Tab (Alt)
+      - type: trans
+      - type: trans
+      - Delete
+    -
+      - Ctrl
+      - Gui
+      - Alt
+      - Shift
+      - Ctrl
+      - type: trans
+    -
+      - $$mdi:arrow-left$$
+      - $$mdi:arrow-down$$
+      - $$mdi:arrow-up$$
+      - $$mdi:arrow-right$$
+      - type: trans
+      - Enter
+    -
+      - Shift
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - Home
+      - Page Down
+      - Page Up
+      - End
+      - type: trans
+      - Shift
+    -
+      - type: held
+      - type: trans
+      - type: trans
+    -
+      - Print Scrn
+      - type: trans
+      - type: ghost
+        tap: (snip)
+  Adjust:
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - Boot
+    -
+      - Boot
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - $$mdi:volume-minus$$
+      - $$mdi:volume-plus$$
+      - $$mdi:volume-mute$$
+      - $$mdi:play-pause$$
+      - type: trans
+    -
+      - type: trans
+      - FancyZone Layout 1
+      - FancyZone Layout 2
+      - FancyZone Layout 3
+      - FancyZone Layout 4
+      - type: trans
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+      - type: trans
+    -
+      - type: trans
+      - type: held
+      - type: trans
+    -
+      - type: trans
+      - type: held
+      - type: trans
+combos:
+  - key_positions:
+      - 2
+      - 3
+    key: Esc
+    layers:
+      - Base
+      - Sym
+      - Num
+    align: top
+  - key_positions:
+      - 8
+      - 9
+    key: Esc
+    layers:
+      - Base
+      - Sym
+      - Num
+    align: top
+  - key_positions:
+      - 10
+      - 11
+    key: BSPC
+    layers:
+      - Base
+  - key_positions:
+      - 13
+      - 16
+    key: Gui
+    layers:
+      - Base
+    align: bottom
+  - key_positions:
+      - 14
+      - 16
+    key: Alt
+    layers:
+      - Base
+    align: top
+  - key_positions:
+      - 15
+      - 16
+    key: Ctrl
+    layers:
+      - Base
+      - Num
+    align: mid
+  - key_positions:
+      - 14
+      - 15
+    key: Shift
+    layers:
+      - Base
+      - Num
+    align: mid
+  - key_positions:
+      - 19
+      - 22
+    key: Gui
+    layers:
+      - Base
+    align: bottom
+  - key_positions:
+      - 19
+      - 21
+    key: Alt
+    layers:
+      - Base
+    align: top
+  - key_positions:
+      - 19
+      - 20
+    key: Ctrl
+    layers:
+      - Base
+      - Num
+    align: mid
+  - key_positions:
+      - 20
+      - 21
+    key: Shift
+    layers:
+      - Base
+      - Num
+    align: mid
+  - key_positions:
+      - 14
+      - 15
+      - 16
+    key: Ctrl Shift
+    layers:
+      - Base
+    align: bottom
+  - key_positions:
+      - 19
+      - 20
+      - 21
+    key: Ctrl Shift
+    layers:
+      - Base
+    align: bottom
+  - key_positions:
+      - 26
+      - 27
+    key: IME Off
+    layers:
+      - Base
+      - Num
+    align: bottom
+  - key_positions:
+      - 32
+      - 33
+    key: IME On
+    layers:
+      - Base
+      - Num
+    align: bottom
+draw_config:
+  glyph_tap_size: 18
+  key_w: 60
+  key_h: 60
+  combo_h: 20
+  separate_combo_diagrams: true
+  draw_key_sides: true
