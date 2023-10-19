@@ -1,0 +1,24 @@
+FROM python:3.10-slim as make-user
+
+RUN \
+  useradd --shell /bin/bash --create-home --user-group nonroot && \
+  install -o nonroot -g nonroot -d /code/
+
+# --------------------------------------------------------------------------------
+
+FROM python:3.10-slim as builder
+
+RUN pip wheel --no-cache-dir --no-deps --wheel-dir /wheels keymap-drawer
+
+# --------------------------------------------------------------------------------
+
+FROM make-user
+
+COPY --from=builder /wheels /wheels
+
+USER nonroot
+
+RUN pip install --no-cache-dir --user /wheels/*
+
+WORKDIR /code
+ENTRYPOINT ["/home/nonroot/.local/bin/keymap"]

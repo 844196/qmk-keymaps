@@ -2,5 +2,14 @@ services:
   workspace:
     image: ghcr.io/844196/qmk-keymaps-workspace:0.22.12
     volumes:
-      - .:/code
+      - ${LOCAL_WORKSPACE_FOLDER:-./}:/code
+    init: true
     tty: true
+  keymap:
+    build:
+      context: .
+      dockerfile: Dockerfile.keymap
+    volumes:
+      - ${LOCAL_WORKSPACE_FOLDER:-./}:/code
+    profiles:
+      - cli

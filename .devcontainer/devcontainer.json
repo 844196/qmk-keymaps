@@ -3,13 +3,17 @@
   "dockerComposeFile": "../compose.yml",
   "service": "workspace",
   "remoteUser": "nonroot",
+  "remoteEnv": {
+    "LOCAL_WORKSPACE_FOLDER": "${localWorkspaceFolder}"
+  },
   "updateRemoteUserUID": true,
   "workspaceFolder": "/code",
   "features": {
     "ghcr.io/devcontainers/features/common-utils:2": {
       "username": "nonroot",
       "installOhMyZsh": false
-    }
+    },
+    "ghcr.io/devcontainers/features/docker-outside-of-docker:1": {}
   },
   "customizations": {
     "vscode": {

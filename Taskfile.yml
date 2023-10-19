@@ -24,6 +24,15 @@ tasks:
     cmds:
       - qmk compile -e BUILD_DIR={{.TASKFILE_DIR}}/.build -j {{.PARALLEL}} --keyboard {{.KEYBOARD}} --keymap {{.KEYMAP}}
 
+  draw:
+    internal: true
+    requires:
+      vars:
+        - KEYBOARD
+        - KEYMAP
+    cmds:
+      - docker compose run --rm -it keymap draw src/keyboards/{{.KEYBOARD}}/keymaps/{{.KEYMAP}}/keymap.yml > src/keyboards/{{.KEYBOARD}}/keymaps/{{.KEYMAP}}/keymap.svg
+
   clean:
     cmds:
       # .build 自体を消すとバインドマウントしているホスト側でファイルの変更が反映されない
@@ -32,6 +41,10 @@ tasks:
   build:crkbd:
     cmds:
       - task: build
+        vars:
+          KEYBOARD: crkbd/rev1
+          KEYMAP: efumaxay
+      - task: draw
         vars:
           KEYBOARD: crkbd/rev1
           KEYMAP: efumaxay
