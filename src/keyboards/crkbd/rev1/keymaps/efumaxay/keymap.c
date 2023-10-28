@@ -70,6 +70,7 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
                 is_my_ctrl_held = true;
             } else {
                 is_my_ctrl_held = false;
+                unregister_code(KC_BSPC); // Avoid BSPC spamming
             }
             break;
         case LT_NUM:
