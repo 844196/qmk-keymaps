@@ -10,6 +10,15 @@
 
 ## :croissant: Corne
 
+### Keymap
+
+<details>
+    <summary>Click to expand</summary>
+    <div>
+        <img src="./src/keyboards/crkbd/rev1/keymaps/efumaxay/keymap.svg">
+    </div>
+</details>
+
 ### Features
 
 * (One-shot) Home-row combo mods[^hrcm] in `Base`
