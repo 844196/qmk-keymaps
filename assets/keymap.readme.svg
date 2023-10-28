@@ -1,4 +1,4 @@
-<svg width="960" height="2158" viewBox="0 0 960 2158" class="keymap" xmlns="http://www.w3.org/2000/svg"
+<svg viewBox="0 0 900 302" class="keymap" xmlns="http://www.w3.org/2000/svg"
   xmlns:xlink="http://www.w3.org/1999/xlink">
   <defs>/* start glyphs */
     <svg id="mdi:keyboard-return">
@@ -122,8 +122,8 @@
 
     /* End Tabler Icons Cleanup */
   </style>
-  <g transform="translate(30, 0)" class="layer-Base">
-    <g transform="translate(0, 56)">
+  <g transform="translate(0, 0)" class="layer-Base">
+    <g transform="translate(0, 12)">
       <g transform="translate(30, 52)" class="key keypos-0">
         <rect rx="6" ry="6" x="-28" y="-28" width="56" height="56" class="key side" />
         <rect rx="4" ry="4" x="-22" y="-26" width="44" height="44" class="key" />

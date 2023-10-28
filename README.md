@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="./assets/keymap.readme.svg">
+  <img src="./assets/keymap.readme.svg" height="240px">
 </p>
 <h1 align="center">
   qmk-keymaps
