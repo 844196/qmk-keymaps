@@ -8,7 +8,7 @@
   <small><i>:key::world_map:</i></small>
 </p>
 
-## :croissant: Corne Keyboard (CRKBD)
+## :croissant: Corne
 
 ### Features
 
@@ -26,6 +26,16 @@ See also [`keymap.c`](./src/keyboards/crkbd/rev1/keymaps/efumaxay/keymap.c) and 
 
 ```sh
 task build:crkbd
+```
+
+## :pick: Lulu (for minecraft)
+
+TBW
+
+### Build
+
+```sh
+task build:lulu:minecraft
 ```
 
 [^hrcm]: https://jasoncarloscox.com/blog/combo-mods/
