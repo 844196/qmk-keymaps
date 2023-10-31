@@ -121,8 +121,8 @@ layers:
       - Enter
     -
       - type: trans
-      - type: trans
-      - type: trans
+      - '->'
+      - '=>'
       - '['
       - ']'
       - '\'

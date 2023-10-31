@@ -38,6 +38,11 @@ enum tap_dances {
     TD_MEDIA_CONTROL,
 };
 
+enum keymap_custom_keycodes {
+    MY_ARW = NEW_SAFE_RANGE,
+    MY_DARW,
+};
+
 #define LT_NAV LT(_NAV, KC_NO)
 #define LT_SYM TD(TD_SYM)
 #define LT_NUM LT(_NUM, KC_NO)
@@ -117,6 +122,16 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
                 return false;
             }
             break;
+        case MY_ARW:
+            if (record->event.pressed) {
+                SEND_STRING("->");
+            }
+            break;
+        case MY_DARW:
+            if (record->event.pressed) {
+                SEND_STRING("=>");
+            }
+            break;
         default:
             break;
     }
@@ -139,7 +154,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
     ),
 
     [_SYM] = LAYOUT_split_3x6_3(
-        KC_ESC,   _______,  KC_BSPC,  CTL_C,    CTL_V,    KC_ENT,                       _______,  _______,  _______,  KC_LBRC,  KC_RBRC,  KC_BSLS,
+        KC_ESC,   _______,  KC_BSPC,  CTL_C,    CTL_V,    KC_ENT,                       _______,  MY_ARW,   MY_DARW,  KC_LBRC,  KC_RBRC,  KC_BSLS,
         KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                      KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,
         KC_LSFT,  _______,  _______,  _______,  _______,  _______,                      _______,  _______,  _______,  KC_LCBR,  KC_RCBR,  KC_PIPE,
                                                 _______,  KC_NO,    _______,  _______,  _______,  _______
