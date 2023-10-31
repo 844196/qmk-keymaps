@@ -115,10 +115,10 @@ layers:
     -
       - Esc
       - type: trans
-      - type: trans
-      - type: trans
-      - type: trans
-      - type: trans
+      - BSPC
+      - Ctrl C
+      - Ctrl V
+      - Enter
     -
       - type: trans
       - type: trans
@@ -218,7 +218,7 @@ layers:
     -
       - Esc
       - type: trans
-      - type: trans
+      - BSPC
       - Ctrl C
       - Ctrl V
       - Enter
@@ -235,7 +235,7 @@ layers:
       - Alt
       - Shift
       - Ctrl
-      - BSPC
+      - type: trans
     -
       - $$mdi:arrow-left$$
       - $$mdi:arrow-down$$
