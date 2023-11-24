@@ -43,6 +43,7 @@ enum keymap_custom_keycodes {
     MY_DARW,
 };
 
+#define MO_NAV MO(_NAV)
 #define LT_NAV LT(_NAV, KC_NO)
 #define LT_SYM TD(TD_SYM)
 #define LT_NUM LT(_NUM, KC_NO)
@@ -143,7 +144,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                         KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_MINS,
         MY_CTL,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                         KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
         CW_TOGG,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_EQL,
-                                                LT_NAV,   LT_SYM,   KC_SPC,   KC_ENT,   LT_NUM,   LT_NAV
+                                                MO_NAV,   LT_SYM,   KC_SPC,   KC_ENT,   LT_NUM,   LT_NAV
     ),
 
     [_NUM] = LAYOUT_split_3x6_3(

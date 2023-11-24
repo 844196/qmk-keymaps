@@ -46,8 +46,7 @@ layers:
       - '/'
       - '='
     -
-      - tap: Mouse
-        hold: Nav
+      - Nav
       - tap: One-Shot Sym
         hold: Sym
       - $$mdi:keyboard-space$$
