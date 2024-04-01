@@ -20,7 +20,7 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 #pragma once
 
-#define MASTER_LEFT
+#define MASTER_RIGHT
 #define SPLIT_TRANSACTION_IDS_USER RPC_SYNC_SHARED_STATE
 
 #define TAPPING_TERM 200
@@ -38,7 +38,5 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 #define CAPS_WORD_IDLE_TIMEOUT 3000
 #define NUM_WORD_IDLE_TIMEOUT 3000
 
-#ifdef RGB_MATRIX_ENABLE
-	#define SPLIT_LAYER_STATE_ENABLE
-	#define RGB_DISABLE_WHEN_USB_SUSPENDED
-#endif
+#define SPLIT_LAYER_STATE_ENABLE
+// #define RGB_DISABLE_WHEN_USB_SUSPENDED

@@ -1,6 +1,11 @@
 services:
   workspace:
     image: ghcr.io/844196/qmk-keymaps-workspace:0.22.12
+    build:
+      context: .
+      dockerfile: Dockerfile.workspace
+      args:
+        QMK_VERSION: b7468f47857ad20a031906ccbd654541222a0d26
     volumes:
       - ${LOCAL_WORKSPACE_FOLDER:-./}:/code
     init: true

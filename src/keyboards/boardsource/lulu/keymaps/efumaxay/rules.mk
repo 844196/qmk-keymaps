@@ -1,6 +1,5 @@
 VPATH += keyboards/gboards/
 
-CONVERT_TO = elite_pi
 BOOTMAGIC_ENABLE = no
 
 KEY_OVERRIDE_ENABLE = yes
@@ -11,7 +10,7 @@ CAPS_WORD_ENABLE = yes
 NUM_WORD_ENABLE = yes
 SUPER_TAB_ENABLE = yes
 
-OLED_ENABLE = yes
+OLED_ENABLE = no
+ENCODER_ENABLE = no
 
-RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes

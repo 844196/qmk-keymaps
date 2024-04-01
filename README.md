@@ -29,7 +29,6 @@
 * `Esc` cooperate with Japanese IME in Vim Insert mode
 * Improved *Super ALT↯TAB*[^super-alt-tab]
 * LED indicator (Layer, One-shot mod, Caps Word, ... and more) using `transaction_rpc_*`[^custom-data-sync]
-* [Arasaka](https://kbd.news/Cyberpunk-OLED-glitch-1098.html)
 
 See also [`keymap.c`](./src/keyboards/crkbd/rev1/keymaps/efumaxay/keymap.c) and [`users/efumaxay/*`](./src/users/efumaxay).
 

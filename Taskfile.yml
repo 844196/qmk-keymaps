@@ -1,57 +1,42 @@
+# cspell: disable
+---
 version: '3'
 
 tasks:
-  default:
-    cmds:
-      - task --list-all
+  default: task --list-all
+
+  # .build 自体を消すとバインドマウントしているホスト側でファイルの変更が反映されない
+  clean: find .build -mindepth 1 ! -name .gitignore -print0 | xargs --null rm -rf
 
   sync:
     internal: true
-    cmds:
-      - rsync -avr {{.TASKFILE_DIR}}/src/ ${QMK_HOME}/
+    cmd: rsync -avr {{.TASKFILE_DIR}}/src/ ${QMK_HOME}/
 
-  build:
-    internal: true
+  build:*:*:
     vars:
+      KEYBOARD: '{{index .MATCH 0}}'
+      KEYMAP: '{{index .MATCH 1}}'
       PARALLEL:
         sh: nproc
-    requires:
-      vars:
-        - KEYBOARD
-        - KEYMAP
     deps:
       - sync
-    cmds:
-      - qmk compile -e BUILD_DIR={{.TASKFILE_DIR}}/.build -j {{.PARALLEL}} --keyboard {{.KEYBOARD}} --keymap {{.KEYMAP}}
-
-  draw:
-    internal: true
-    requires:
-      vars:
-        - KEYBOARD
-        - KEYMAP
-    cmds:
-      - docker compose run --rm -it keymap draw src/keyboards/{{.KEYBOARD}}/keymaps/{{.KEYMAP}}/keymap.yml > src/keyboards/{{.KEYBOARD}}/keymaps/{{.KEYMAP}}/keymap.svg
-
-  clean:
-    cmds:
-      # .build 自体を消すとバインドマウントしているホスト側でファイルの変更が反映されない
-      - find .build -mindepth 1 ! -name .gitignore -print0 | xargs --null rm -rf
+    cmd: qmk compile -e BUILD_DIR={{.TASKFILE_DIR}}/.build -j {{.PARALLEL}} -kb {{.KEYBOARD}} -km {{.KEYMAP}}
 
   build:crkbd:
     cmds:
-      - task: build
-        vars:
-          KEYBOARD: crkbd/rev1
-          KEYMAP: efumaxay
-      - task: draw
-        vars:
-          KEYBOARD: crkbd/rev1
-          KEYMAP: efumaxay
+      - task: build:crkbd/rev1:efumaxay
+      - task: draw:crkbd/rev1:efumaxay
+
+  build:lulu:
+    cmd:
+      task: build:boardsource/lulu/rp2040:efumaxay
 
   build:lulu:minecraft:
-    cmds:
-      - task: build
-        vars:
-          KEYBOARD: boardsource/lulu/rp2040
-          KEYMAP: minecraft
+    cmd:
+      task: build:boardsource/lulu/rp2040:minecraft
+
+  draw:*:*:
+    vars:
+      KEYBOARD: '{{index .MATCH 0}}'
+      KEYMAP: '{{index .MATCH 1}}'
+    cmd: docker compose run --rm -it keymap draw src/keyboards/{{.KEYBOARD}}/keymaps/{{.KEYMAP}}/keymap.yml > src/keyboards/{{.KEYBOARD}}/keymaps/{{.KEYMAP}}/keymap.svg

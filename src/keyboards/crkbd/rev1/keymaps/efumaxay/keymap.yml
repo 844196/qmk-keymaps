@@ -54,8 +54,7 @@ layers:
       - $$mdi:keyboard-return$$
       - tap: Num Word
         hold: Num
-      - tap: Mouse
-        hold: Nav
+      - Nav
   Num:
     -
       - Esc
@@ -162,57 +161,6 @@ layers:
       - type: trans
       - type: trans
       - type: trans
-  Mouse:
-    -
-      - Esc
-      - type: trans
-      - Back
-      - M↑
-      - Forward
-      - Enter
-    -
-      - type: trans
-      - Back
-      - Forward
-      - type: trans
-      - type: trans
-      - Delete
-    -
-      - Ctrl
-      - Right Click
-      - M←
-      - M↓
-      - M→
-      - MW↑
-    -
-      - M←
-      - M↓
-      - M↑
-      - M→
-      - Right Click
-      - Enter
-    -
-      - Shift
-      - Snipe DPI
-      - type: trans
-      - Ctrl C
-      - Ctrl V
-      - MW↓
-    -
-      - MW←
-      - MW↓
-      - MW↑
-      - MW→
-      - type: trans
-      - Shift
-    -
-      - Nav
-      - Middle Click
-      - Left Click
-    -
-      - Left Click
-      - Middle Click
-      - Nav
   Nav:
     -
       - Esc
@@ -323,7 +271,6 @@ combos:
     key: Esc
     layers:
       - Base
-      - Sym
       - Num
     align: top
   - key_positions:
@@ -332,7 +279,6 @@ combos:
     key: Esc
     layers:
       - Base
-      - Sym
       - Num
     align: top
   - key_positions:
@@ -347,7 +293,7 @@ combos:
     key: Gui
     layers:
       - Base
-    align: bottom
+    align: right
   - key_positions:
       - 14
       - 16
@@ -377,7 +323,7 @@ combos:
     key: Gui
     layers:
       - Base
-    align: bottom
+    align: left
   - key_positions:
       - 19
       - 21
@@ -410,6 +356,22 @@ combos:
       - Base
     align: bottom
   - key_positions:
+      - 26
+      - 27
+      - 28
+    key: Ctrl Alt
+    layers:
+      - Base
+    align: bottom
+  - key_positions:
+      - 31
+      - 32
+      - 33
+    key: Ctrl Alt
+    layers:
+      - Base
+    align: bottom
+  - key_positions:
       - 19
       - 20
       - 21
@@ -424,7 +386,7 @@ combos:
     layers:
       - Base
       - Num
-    align: bottom
+    align: mid
   - key_positions:
       - 32
       - 33
@@ -432,7 +394,7 @@ combos:
     layers:
       - Base
       - Num
-    align: bottom
+    align: mid
 draw_config:
   glyph_tap_size: 18
   key_w: 60

@@ -1,6 +1,5 @@
 VPATH += keyboards/gboards/
 
-CONVERT_TO = elite_pi
 BOOTMAGIC_ENABLE = no
 
 KEY_OVERRIDE_ENABLE = yes
@@ -15,3 +14,6 @@ OLED_ENABLE = yes
 
 RGBLIGHT_ENABLE = no
 RGB_MATRIX_ENABLE = yes
+
+# rev4のみ
+ENCODER_MAP_ENABLE = no

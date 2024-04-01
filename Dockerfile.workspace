@@ -1,32 +1,61 @@
 ARG QMK_CLI_VERSION=latest
-FROM ghcr.io/qmk/qmk_cli:${QMK_CLI_VERSION} as base
+FROM ghcr.io/qmk/qmk_cli:${QMK_CLI_VERSION}
 
 RUN \
   apt-get update && \
-  apt-get install -y --no-install-recommends curl=* sudo=* && \
-  apt-get clean && \
+  apt-get install -y --no-install-recommends \
+    locales=* \
+    sudo=* \
+    curl=* \
+    rsync=* \
+    git=* && \
   rm -rf /var/lib/apt/lists/*
+
+COPY <<EOF /etc/locale.gen
+en_US.UTF-8 UTF-8
+ja_JP.UTF-8 UTF-8
+EOF
+
+RUN locale-gen
 
 RUN \
   useradd --shell /bin/bash --create-home --user-group nonroot && \
+  install -o nonroot -g nonroot -d /home/nonroot/.config && \
   echo "nonroot ALL=(root) NOPASSWD:ALL" > /etc/sudoers.d/nonroot && \
   chmod 0440 /etc/sudoers.d/nonroot
 
-RUN sh -c "$(curl --location https://taskfile.dev/install.sh)" -- -d -b /usr/local/bin v3.31.0
-
 RUN install -o nonroot -g nonroot -d /code/
 
-ENV QMK_HOME=/home/nonroot/qmk_firmware
 USER nonroot
-WORKDIR /code
-
-# --------------------------------------------------------------------------------
-
-FROM base
+SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG QMK_REPOSITORY=qmk/qmk_firmware
 ARG QMK_VERSION=master
 
+ENV QMK_HOME=/home/nonroot/qmk_firmware
+RUN mkdir -p "${QMK_HOME}"
+
+WORKDIR ${QMK_HOME}
 RUN \
-  qmk setup --yes --home "${QMK_HOME}" "${QMK_REPOSITORY}" --branch "${QMK_VERSION}" && \
-  rm -rf "${QMK_HOME}"/.git
+  git init && \
+  git remote add origin https://github.com/${QMK_REPOSITORY}.git && \
+  git fetch --depth 1 origin "${QMK_VERSION}" && \
+  git checkout FETCH_HEAD && \
+  git submodule update --init --recursive && \
+  qmk setup --yes --home "${QMK_HOME}"
+
+RUN \
+  mkdir -p ${QMK_HOME}/foostan && \
+  mkdir -p ${QMK_HOME}/keyboards/foostan/crkbd && \
+  git clone https://github.com/foostan/kbd_firmware.git ${QMK_HOME}/foostan && \
+  cp -r ${QMK_HOME}/foostan/keyboards/crkbd/qmk/qmk_firmware/* ${QMK_HOME}/keyboards/foostan/crkbd/
+
+ENV AQUA_ROOT_DIR /home/nonroot/.local/share/aquaproj-aqua
+RUN curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.0/aqua-installer | bash -s -- -v v2.23.0
+ENV PATH ${AQUA_ROOT_DIR}/bin:$PATH
+
+COPY --chown=nonroot:nonroot --chmod=0755 docker-entrypoint.sh /docker-entrypoint.sh
+ENTRYPOINT ["/docker-entrypoint.sh"]
+
+ENV LANG en_US.UTF-8
+WORKDIR /code

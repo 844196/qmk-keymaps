@@ -1,0 +1,7 @@
+# cspell: disable
+---
+registries:
+- type: standard
+  ref: v4.155.1
+packages:
+  - name: go-task/task@v3.35.1

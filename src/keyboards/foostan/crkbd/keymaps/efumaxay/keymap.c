@@ -1,21 +1,3 @@
-/*
-Copyright 2019 @foostan
-Copyright 2020 Drashna Jaelre <@drashna>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 2 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
-*/
-
 #include QMK_KEYBOARD_H
 #include "efumaxay.h"
 #include "g/keymap_combo.h"
@@ -124,37 +106,37 @@ bool process_record_keymap(uint16_t keycode, keyrecord_t *record) {
 }
 
 const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
-    [_BASE] = LAYOUT_split_3x6_3(
-        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,                         KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_MINS,
-        MY_CTL,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,                         KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
+    [_BASE] = LAYOUT_split_3x6_3_ex2(
+        KC_TAB,   KC_Q,     KC_W,     KC_E,     KC_R,     KC_T,     KC_NO,    KC_NO,    KC_Y,     KC_U,     KC_I,     KC_O,     KC_P,     KC_MINS,
+        MY_CTL,   KC_A,     KC_S,     KC_D,     KC_F,     KC_G,     KC_NO,    KC_NO,    KC_H,     KC_J,     KC_K,     KC_L,     KC_SCLN,  KC_QUOT,
         CW_TOGG,  KC_Z,     KC_X,     KC_C,     KC_V,     KC_B,                         KC_N,     KC_M,     KC_COMM,  KC_DOT,   KC_SLSH,  KC_EQL,
                                                 MO_NAV,   LT_SYM,   KC_SPC,   KC_ENT,   LT_NUM,   MO_NAV
     ),
 
-    [_NUM] = LAYOUT_split_3x6_3(
-        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,                        KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_DEL,
-        GRV_CTL,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,                         KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
+    [_NUM] = LAYOUT_split_3x6_3_ex2(
+        KC_ESC,   KC_F1,    KC_F2,    KC_F3,    KC_F4,    KC_F5,    KC_NO,    KC_NO,    KC_F6,    KC_F7,    KC_F8,    KC_F9,    KC_F10,   KC_DEL,
+        GRV_CTL,  KC_1,     KC_2,     KC_3,     KC_4,     KC_5,     KC_NO,    KC_NO,    KC_6,     KC_7,     KC_8,     KC_9,     KC_0,     KC_MINS,
         KC_LSFT,  KC_F11,   KC_F12,   _______,  _______,  _______,                      _______,  _______,  KC_COMM,  KC_DOT,   KC_SLSH,  KC_EQL,
                                                 _______,  _______,  _______,  _______,  _______,  _______
     ),
 
-    [_SYM] = LAYOUT_split_3x6_3(
-        KC_ESC,   _______,  KC_BSPC,  CTL_C,    CTL_V,    KC_ENT,                       _______,  MY_ARW,   MY_DARW,  KC_LBRC,  KC_RBRC,  KC_BSLS,
-        KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,                      KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,
+    [_SYM] = LAYOUT_split_3x6_3_ex2(
+        KC_ESC,   _______,  KC_BSPC,  CTL_C,    CTL_V,    KC_ENT,   KC_NO,    KC_NO,    _______,  MY_ARW,   MY_DARW,  KC_LBRC,  KC_RBRC,  KC_BSLS,
+        KC_TILD,  KC_EXLM,  KC_AT,    KC_HASH,  KC_DLR,   KC_PERC,  KC_NO,    KC_NO,    KC_CIRC,  KC_AMPR,  KC_ASTR,  KC_LPRN,  KC_RPRN,  KC_UNDS,
         KC_LSFT,  _______,  _______,  _______,  _______,  _______,                      _______,  _______,  _______,  KC_LCBR,  KC_RCBR,  KC_PIPE,
                                                 _______,  KC_NO,    _______,  _______,  _______,  _______
     ),
 
-    [_NAV] = LAYOUT_split_3x6_3(
-        KC_ESC,   XXXXXXX,  KC_BSPC,  CTL_C,    CTL_V,    KC_ENT,                       XXXXXXX,  CTL_TAB,  ALT_TAB,  XXXXXXX,  XXXXXXX,  KC_DEL,
-        KC_LCTL,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  _______,                      KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  XXXXXXX,  KC_ENT,
+    [_NAV] = LAYOUT_split_3x6_3_ex2(
+        KC_ESC,   XXXXXXX,  KC_BSPC,  CTL_C,    CTL_V,    KC_ENT,   KC_NO,    KC_NO,    XXXXXXX,  CTL_TAB,  ALT_TAB,  XXXXXXX,  XXXXXXX,  KC_DEL,
+        KC_LCTL,  KC_LGUI,  KC_LALT,  KC_LSFT,  KC_LCTL,  _______,  KC_NO,    KC_NO,    KC_LEFT,  KC_DOWN,  KC_UP,    KC_RGHT,  XXXXXXX,  KC_ENT,
         KC_LSFT,  XXXXXXX,  XXXXXXX,  _______,  _______,  XXXXXXX,                      KC_HOME,  KC_PGDN,  KC_PGUP,  KC_END,   XXXXXXX,  KC_LSFT,
                                                 _______,  XXXXXXX,  XXXXXXX,  MY_PSCR,  XXXXXXX,  _______
     ),
 
-    [_ADJUST] = LAYOUT_split_3x6_3(
-        _______,  _______,  _______,  _______,  _______,  QK_BOOT,                      QK_BOOT,  _______,  _______,  _______,  _______,  _______,
-        _______,  KC_VOLD,  KC_VOLU,  KC_MUTE,  KC_MCTL,  _______,                      _______,  FZ_1,     FZ_2,     FZ_3,     FZ_4,     _______,
+    [_ADJUST] = LAYOUT_split_3x6_3_ex2(
+        _______,  _______,  _______,  _______,  _______,  QK_BOOT,  KC_NO,    KC_NO,    QK_BOOT,  _______,  _______,  _______,  _______,  _______,
+        _______,  KC_VOLD,  KC_VOLU,  KC_MUTE,  KC_MCTL,  _______,  KC_NO,    KC_NO,    _______,  FZ_1,     FZ_2,     FZ_3,     FZ_4,     _______,
         _______,  _______,  _______,  _______,  _______,  _______,                      _______,  _______,  _______,  _______,  _______,  _______,
                                                 _______,  _______,  _______,  _______,  _______,  _______
     ),
@@ -435,6 +417,7 @@ bool oled_task_user(void) {
  * RGB Matrix
  */
 #ifdef RGB_MATRIX_ENABLE
+// TODO あってない
 #define INDICATOR_PRIMARY 6, 33
 #define INDICATOR_SECONDARY 13, 40
 
