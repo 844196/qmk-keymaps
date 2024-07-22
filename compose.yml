@@ -6,6 +6,7 @@ services:
       dockerfile: Dockerfile.workspace
       args:
         QMK_VERSION: b7468f47857ad20a031906ccbd654541222a0d26
+        CRKBD_FIRMWARE_REVISION: '621f49f0e9baaa3fa3c2235045d6901ddb142db6'
     volumes:
       - ${LOCAL_WORKSPACE_FOLDER:-./}:/code
     init: true

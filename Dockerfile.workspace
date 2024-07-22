@@ -31,6 +31,7 @@ SHELL ["/bin/bash", "-o", "pipefail", "-c"]
 
 ARG QMK_REPOSITORY=qmk/qmk_firmware
 ARG QMK_VERSION=master
+ARG CRKBD_FIRMWARE_REVISION=main
 
 ENV QMK_HOME=/home/nonroot/qmk_firmware
 RUN mkdir -p "${QMK_HOME}"
@@ -47,8 +48,13 @@ RUN \
 RUN \
   mkdir -p ${QMK_HOME}/foostan && \
   mkdir -p ${QMK_HOME}/keyboards/foostan/crkbd && \
-  git clone https://github.com/foostan/kbd_firmware.git ${QMK_HOME}/foostan && \
-  cp -r ${QMK_HOME}/foostan/keyboards/crkbd/qmk/qmk_firmware/* ${QMK_HOME}/keyboards/foostan/crkbd/
+  git clone https://github.com/foostan/kbd_firmware.git ${QMK_HOME}/foostan
+
+WORKDIR ${QMK_HOME}/foostan
+RUN git checkout "${CRKBD_FIRMWARE_REVISION}"
+
+WORKDIR ${QMK_HOME}
+RUN cp -r ${QMK_HOME}/foostan/keyboards/crkbd/qmk/qmk_firmware/* ${QMK_HOME}/keyboards/foostan/crkbd/
 
 ENV AQUA_ROOT_DIR /home/nonroot/.local/share/aquaproj-aqua
 RUN curl -sSfL https://raw.githubusercontent.com/aquaproj/aqua-installer/v3.0.0/aqua-installer | bash -s -- -v v2.23.0

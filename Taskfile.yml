@@ -27,6 +27,10 @@ tasks:
       - task: build:crkbd/rev1:efumaxay
       - task: draw:crkbd/rev1:efumaxay
 
+  build:crkbd:rev4_0:
+    cmds:
+      - task: build:foostan/crkbd/rev4_0/standard:efumaxay
+
   build:lulu:
     cmd:
       task: build:boardsource/lulu/rp2040:efumaxay
